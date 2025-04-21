@@ -114,8 +114,7 @@ GLFW_LINUX_ENABLE_X11      ?= FALSE
 
 # PLATFORM_DESKTOP_SDL: It requires SDL library to be provided externally
 # WARNING: Library is not included in raylib, it MUST be configured by users
-SDL_INCLUDE_PATH      ?= $(RAYLIB_SRC_PATH)/external/SDL2/include
-SDL_LIBRARY_PATH      ?= $(RAYLIB_SRC_PATH)/external/SDL2/lib
+SDL_INCLUDE_PATH      ?= $(VITASDK)/arm-vita-eabi/include/SDL2
 SDL_LIBRARIES         ?= -lSDL2 -lSDL2main
 
 
@@ -172,13 +171,12 @@ INCLUDE_PATHS += -I$(SDL_INCLUDE_PATH)
 #------------------------------------------------------------------------------------------------
 LDFLAGS = $(CUSTOM_LDFLAGS) -L. -L$(RAYLIB_RELEASE_PATH)
 LDFLAGS += -Wl,-soname,lib$(RAYLIB_LIB_NAME).so.$(RAYLIB_API_VERSION)
-LDFLAGS += -L$(SDL_LIBRARY_PATH)
 
 # Define libraries required on linking: LDLIBS
 # NOTE: This is only required for dynamic library generation
 #------------------------------------------------------------------------------------------------
 
-LDLIBS = -lGL -lc -lm -lpthread -ldl -lrt
+LDLIBS = -lc -lm -lpthread -ldl -lrt
 LDLIBS += $(SDL_LIBRARIES)
 
 # Define source code object files required
@@ -271,9 +269,7 @@ RAYLIB_INSTALL_PATH ?= $(DESTDIR)/lib
 # RAYLIB_H_INSTALL_PATH locates the installed raylib header and associated source files.
 RAYLIB_H_INSTALL_PATH ?= $(DESTDIR)/include
 
-install :
-	mkdir -p $(RAYLIB_INSTALL_PATH)
-	mkdir -p $(RAYLIB_H_INSTALL_PATH)
+install : raylib
 	cp --update --verbose $(RAYLIB_RELEASE_PATH)/lib$(RAYLIB_LIB_NAME).a $(RAYLIB_INSTALL_PATH)/lib$(RAYLIB_LIB_NAME).a
 	cp --update raylib.h $(RAYLIB_H_INSTALL_PATH)/raylib.h
 	cp --update raymath.h $(RAYLIB_H_INSTALL_PATH)/raymath.h

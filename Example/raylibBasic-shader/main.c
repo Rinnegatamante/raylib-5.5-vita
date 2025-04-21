@@ -3,7 +3,6 @@
 #include "raylib.h"
 
 int _newlib_heap_size_user = 12 * 1024 * 1024;
-int sceLibcHeapSize = 8 * 1024 * 1024;
 
 #define GLSL_VERSION            100
 

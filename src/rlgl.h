@@ -4039,13 +4039,17 @@ unsigned int rlLoadShaderCode(const char *vsCode, const char *fsCode)
         if (vertexShaderId != RLGL.State.defaultVShaderId)
         {
             // WARNING: Shader program linkage could fail and returned id is 0
+#ifndef __vita__
             if (id > 0) glDetachShader(id, vertexShaderId);
+#endif
             glDeleteShader(vertexShaderId);
         }
         if (fragmentShaderId != RLGL.State.defaultFShaderId)
         {
             // WARNING: Shader program linkage could fail and returned id is 0
+#ifndef __vita__
             if (id > 0) glDetachShader(id, fragmentShaderId);
+#endif
             glDeleteShader(fragmentShaderId);
         }
 
@@ -4930,9 +4934,10 @@ static void rlLoadShaderDefault(void)
 static void rlUnloadShaderDefault(void)
 {
     glUseProgram(0);
-
+#ifndef __vita__
     glDetachShader(RLGL.State.defaultShaderId, RLGL.State.defaultVShaderId);
     glDetachShader(RLGL.State.defaultShaderId, RLGL.State.defaultFShaderId);
+#endif
     glDeleteShader(RLGL.State.defaultVShaderId);
     glDeleteShader(RLGL.State.defaultFShaderId);
 

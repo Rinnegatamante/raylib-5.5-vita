@@ -1,13 +1,11 @@
-# [Very Dirty] raylib 5.5 port for ps vita
+# raylib 5.5 PSVita port using vitaGL as backend
 
-raylib vita using pvr driver
+A raylib PSVita port using vitaGL as backend based on the PVR_PSP2 port by Quenom.
 
-everything apart from sound should work
+Everything apart from sound should work.
 
-requires sdl2 with pvr support
+Requires [Northfear's SDL2 fork with vitaGL support](https://github.com/Northfear/SDL) and vitaGL compiled with `HAVE_GLSL_SUPPORT=1`
 
-i recommend using [vita-packages-extra](https://github.com/isage/vita-packages-extra/) to install sdl2 with pvr_psp2
-
-# building/installing
+# Building/Installing
 
 Run `make clean && make -j$(nproc) && make install` in `/src`

@@ -13,7 +13,7 @@ project(raylib_basic)
 include("${VITASDK}/share/vita.cmake" REQUIRED)
 
 set(VITA_APP_NAME "RAYLIB basic")
-set(PSVITAIP "192.168.0.170" CACHE STRING "PSVita IP (for FTP access)") [make sure to edit the ip of ps vita] (requires vitacompanion)
+set(PSVITAIP "192.168.0.170" CACHE STRING "PSVita IP (for FTP access)")
 set(VITA_TITLEID  "RAYL00001")
 set(VITA_VERSION  "01.00")
 set(VITA_MKSFOEX_FLAGS "${VITA_MKSFOEX_FLAGS} -d PARENTAL_LEVEL=1")
@@ -37,34 +37,37 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
     raylib
     SDL2
+	vitaGL
+	vitashark
+	SceShaccCgExt
+	SceShaccCg_stub
+	stdc++
+	mathneon
     OpenSLES
     m
     c
-    taihen_stub.a
-    SceAppMgr_stub.a
-    SceCtrl_stub.a
-    SceGxm_stub.a
-    SceCommonDialog_stub.a
+    taihen_stub
+    SceAppMgr_stub
+    SceCtrl_stub
+	SceKernelDmacMgr_stub
+    SceGxm_stub
+    SceCommonDialog_stub
     SceLibKernel_stub
-    SceAudio_stub.a
-    SceTouch_stub.a
-    SceHid_stub.a
-    SceMotion_stub.a
-    SceSysmodule_stub.a
-    SceIofilemgr_stub.a
-    SceNetCtl_stub.a
-    SceNet_stub.a
-    SceDisplay_stub.a
-    SceAppUtil_stub.a
-    SceAudioIn_stub.a
-    SceIofilemgr_stub.a
-    ScePower_stub.a
-    SceProcessmgr_stub.a
-    SceIme_stub.a
-    liblibIMGEGL_stub_weak.a
-    liblibgpu_es4_ext_stub_weak.a
-    liblibGLESv2_stub_weak.a
-    $ENV{VITASDK}/arm-vita-eabi/lib/libraylib.a
+    SceAudio_stub
+    SceTouch_stub
+    SceHid_stub
+    SceMotion_stub
+    SceSysmodule_stub
+    SceIofilemgr_stub
+    SceNetCtl_stub
+    SceNet_stub
+    SceDisplay_stub
+    SceAppUtil_stub
+    SceAudioIn_stub
+    SceIofilemgr_stub
+    ScePower_stub
+    SceProcessmgr_stub
+    SceIme_stub
 )
 
 set(VITA_ELF_CREATE_FLAGS "${VITA_ELF_CREATE_FLAGS}")

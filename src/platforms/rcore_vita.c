@@ -1072,9 +1072,15 @@ void PollInputEvents(void)
 // Module Internal Functions Definition
 //----------------------------------------------------------------------------------
 
+#define HAVE_GL_HEADERS
+#include <vitaGL.h>
+
 // Initialize platform: graphics, inputs and more
 int InitPlatform(void)
 {
+	vglSetSemanticBindingMode(VGL_MODE_POSTPONED);
+	vglInitWithCustomThreshold(0, 960, 544, 8 * 1024 * 1024, 0, 0, 26 * 1024 * 1024, SCE_GXM_MULTISAMPLE_4X);
+	
     //SDL_setenv("VITA_DISABLE_TOUCH_FRONT", "1", 1);
     SDL_setenv("VITA_DISABLE_TOUCH_BACK", "1", 1);
     // Initialize SDL internal global state, only required systems

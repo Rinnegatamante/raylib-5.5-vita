@@ -40,31 +40,34 @@ target_link_libraries(${PROJECT_NAME}
     OpenSLES
     m
     c
-    taihen_stub.a
-    SceAppMgr_stub.a
-    SceCtrl_stub.a
-    SceGxm_stub.a
-    SceCommonDialog_stub.a
+	vitaGL
+	vitashark
+	mathneon
+	SceShaccCgExt
+	SceShaccCg_stub
+	stdc++
+    taihen_stub
+    SceAppMgr_stub
+    SceCtrl_stub
+    SceGxm_stub
+	SceKernelDmacMgr_stub
+    SceCommonDialog_stub
     SceLibKernel_stub
-    SceAudio_stub.a
-    SceTouch_stub.a
-    SceHid_stub.a
-    SceMotion_stub.a
-    SceSysmodule_stub.a
-    SceIofilemgr_stub.a
-    SceNetCtl_stub.a
-    SceNet_stub.a
-    SceDisplay_stub.a
-    SceAppUtil_stub.a
-    SceAudioIn_stub.a
-    SceIofilemgr_stub.a
-    ScePower_stub.a
-    SceProcessmgr_stub.a
-    SceIme_stub.a
-    liblibIMGEGL_stub_weak.a
-    liblibgpu_es4_ext_stub_weak.a
-    liblibGLESv2_stub_weak.a
-    $ENV{VITASDK}/arm-vita-eabi/lib/libraylib.a
+    SceAudio_stub
+    SceTouch_stub
+    SceHid_stub
+    SceMotion_stub
+    SceSysmodule_stub
+    SceIofilemgr_stub
+    SceNetCtl_stub
+    SceNet_stub
+    SceDisplay_stub
+    SceAppUtil_stub
+    SceAudioIn_stub
+    SceIofilemgr_stub
+    ScePower_stub
+    SceProcessmgr_stub
+    SceIme_stub
 )
 
 set(VITA_ELF_CREATE_FLAGS "${VITA_ELF_CREATE_FLAGS}")
