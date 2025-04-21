@@ -40,17 +40,17 @@ target_link_libraries(${PROJECT_NAME}
     OpenSLES
     m
     c
-	vitaGL
-	vitashark
-	mathneon
-	SceShaccCgExt
-	SceShaccCg_stub
-	stdc++
+    vitaGL
+    vitashark
+    mathneon
+    SceShaccCgExt
+    SceShaccCg_stub
+    stdc++
     taihen_stub
     SceAppMgr_stub
     SceCtrl_stub
     SceGxm_stub
-	SceKernelDmacMgr_stub
+    SceKernelDmacMgr_stub
     SceCommonDialog_stub
     SceLibKernel_stub
     SceAudio_stub

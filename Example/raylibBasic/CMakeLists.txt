@@ -37,19 +37,19 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
     raylib
     SDL2
-	vitaGL
-	vitashark
-	SceShaccCgExt
-	SceShaccCg_stub
-	stdc++
-	mathneon
+    vitaGL
+    vitashark
+    SceShaccCgExt
+    SceShaccCg_stub
+    stdc++
+    mathneon
     OpenSLES
     m
     c
     taihen_stub
     SceAppMgr_stub
     SceCtrl_stub
-	SceKernelDmacMgr_stub
+    SceKernelDmacMgr_stub
     SceGxm_stub
     SceCommonDialog_stub
     SceLibKernel_stub
